@@ -1,7 +1,7 @@
 
 ## echo
-echo "...initiating..."
-echo "to run ./backup.sh choose 1st argument: create or fetun"
+
+echo "... Welcome to backup script. to run ./backup.sh choose 1st argument: create or fetun ..."
 
 
 case "$1" in
@@ -18,12 +18,12 @@ case "$1" in
 
 
         ## verifying user inputs
-        echo 1st input is: create
+        echo 1st input is: "$1"
         echo 2nd input is: "$2"
 
         ## creating the archive
         echo creating archive of directory "$2"
-        tar -cf "$2"_"$date_capture.tar" -v "$2"
+        tar -cf "$date_capture.tar" -v "$2"
 
         ## delay for watch purposes
         #sleep "$delay_time"
@@ -35,12 +35,19 @@ case "$1" in
         ## removable options for study
         #rm "$date_capture.tar"
         #echo "archive deleted after living for $delay_time seconds"
+
+        echo "runtime: $SECONDS sec"
+        ;;
+
+
+    fetun)
+        echo "you chose fetun but its empty for now"
         ;;
 
     *)
-        echo you shose poorly
+        echo "you chose poorly (neither of the options)"
         ;;
 
 esac
 
-echo "runtime: $SECONDS sec"
+
