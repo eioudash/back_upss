@@ -23,7 +23,9 @@ case "$1" in
 
         ## creating the archive
         echo creating archive of directory "$2"
-        tar -cf "$date_capture.tar" -v "$2"
+	mkdir -p ~/bu
+        #tar -cf "$date_capture.tar" -v "$2"
+	tar -cvf ~/bu/"$date_capture.tar" "$2"
 
         ## delay for watch purposes
         #sleep "$delay_time"
