@@ -54,12 +54,12 @@ case "$1" in
         ls -lh ~/bu | grep "tar" | awk 'BEGIN{print "Size \t Filename"} {print $5, "\t" $9}'
         ;;
 
+
     restore)
         echo "chosen 'restore', which will extract a selected backup file"
         echo "for the 2nd argument choose filename. use list option for filename"
         #mkdir -p ~/bu/"$date_capture"
-        tar -xf ~/bu/"$2"
-        #-C ~/bu/"$date_capture.tar"
+        tar -xf ~/bu/"$2" -C ~/bu/"$date_capture.tar" && echo $?
         echo "tar extracted"
         ;;
 
