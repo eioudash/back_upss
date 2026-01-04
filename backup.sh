@@ -58,8 +58,16 @@ case "$1" in
     restore)
         echo "chosen 'restore', which will extract a selected backup file"
         echo "for the 2nd argument choose filename. use list option for filename"
-        #mkdir -p ~/bu/"$date_capture"
-        tar -xf ~/bu/"$2" -C ~/bu/"$date_capture.tar" && echo $?
+        echo "creating static var for date capture"
+        #static_date_capture="$date_capture" && echo "exit code $?"
+        static_date_capture="${2%????}"
+        echo "$static_date_capture" && echo "exit code $?"
+        #exit
+        echo "creating a folder"
+        mkdir -p ~/bu/"$static_date_capture" && echo "folder created exit code $?"
+        #tar -xf ~/bu/"$2" -C ~/bu/"$date_capture.tar" && echo $?
+        echo "starting untar"
+        tar -xf "$2" -C ~/bu/"$static_date_capture.tar" && echo "untar done exit code $?"
         echo "tar extracted"
         ;;
 
